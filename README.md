@@ -9,3 +9,7 @@ Link to analytics API repository: https://github.com/su-brat/cart-saas-analytics
 ## First steps first
 ### Cart UI Layout
 **WIP** @: https://www.figma.com/file/mayZY8FZKMVD5nni6CJhqR/Cart-Frontend%3A-Page-1?type=whiteboard&t=EK9EOCB6MACElFrp-6
+
+## Contributors: 
+- [Anish Panda](https://github.com/Anish005)
+- [Subrat Kumar Pattanaik](https://github.com/su-brat)
