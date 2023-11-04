@@ -15,7 +15,7 @@ Link to analytics API repository: https://github.com/su-brat/cart-saas-analytics
 - `dev` branch will be the base branch from which feature branches would be created and merged back to `dev`.
 - It is expected that anything which goes to `dev` is fully functional and ready to deploy.
 - No commit shall go directly to either `main` or `dev`. Every commit should happen through PR to these branches.
-- Strictly follow the [Issues, Branches & PRs](https://app.eraser.io/workspace/y4xOAFH9wk09LLcvjTNH) doc.
+- Strictly follow the [Issues, Branches & PRs](https://app.eraser.io/workspace/0zk4gf9RqxnQEzK65WVg) doc.
 
 ## Contributors:
 - [Anish Panda](https://github.com/Anish005)
