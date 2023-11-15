@@ -15,7 +15,7 @@ Link to analytics API repository: https://github.com/su-brat/cart-saas-analytics
 ## NextJS Toolkit README
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+### Getting Started
 
 First, run the development server:
 
@@ -39,7 +39,7 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+### Learn More
 
 To learn more about Next.js, take a look at the following resources:
 
@@ -48,7 +48,7 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+### Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
@@ -56,6 +56,13 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ---
 ---
+## Branching strategy
+- `main` branch will always contain code which is stable and will go to deployment.
+- `dev` branch will be the base branch from which feature branches would be created and merged back to `dev`.
+- It is expected that anything which goes to `dev` is fully functional and ready to deploy.
+- No commit shall go directly to either `main` or `dev`. Every commit should happen through PR to these branches.
+- Strictly follow the [Issues, Branches & PRs](https://app.eraser.io/workspace/0zk4gf9RqxnQEzK65WVg) doc.
+
 ## Contributors:
 - [Anish Panda](https://github.com/Anish005)
 - [Subrat Kumar Pattanaik](https://github.com/su-brat)
