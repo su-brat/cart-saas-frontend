@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Product from "./Product";
 
 const initialState = [
@@ -48,6 +48,7 @@ const initialState = [
 ];
 
 function ProductScroll() {
+  const intervalId = useRef({});
   const [products, setProducts] = useState(initialState);
   const updateQuantity = (id, quantity) =>
     setProducts((products) =>
@@ -61,6 +62,25 @@ function ProductScroll() {
         return product;
       }),
     );
+  const setRemovedForSingleProduct = (id, removedFlag) => {
+    setProducts((products) =>
+      products.map((product) =>
+        product.id == id ? { ...product, removed: removedFlag } : product,
+      ),
+    );
+  };
+  const removeProduct = (id) => {
+    setProducts((products) => products.filter((product) => product.id !== id));
+    // TODO: API call to delete the product from order
+  };
+  const removeProductAndReturnTimeoutId = (id) => {
+    setRemovedForSingleProduct(id, true);
+    return setTimeout(() => removeProduct(id), 5000);
+  };
+  const buySingleProduct = (product) => {
+    console.log(product); // TODO: Remove this
+    // TODO: API call to create a new order with status SUCCESS and current product
+  };
   return (
     <div className="justify-center items-center flex flex-col">
       {products.map((product) => (
@@ -68,20 +88,47 @@ function ProductScroll() {
           key={product.id}
           className="bg-zinc-800 shadow-md shadow-zinc-900 m-1 p-1 w-full flex flex-col self-center justify-center max-w-screen-lg"
         >
-          <Product
-            title={product.title}
-            variant={product.variant}
-            quantity={product.quantity}
-            price={product.price}
-            imgsrc={product.imgsrc}
-            setQuantity={(quantity) => updateQuantity(product.id, quantity)}
-          />
-          <div className="m-1 p-1">
-            <button className="border-zinc-800 rounded-none">Remove</button>
-            <button className="border-zinc-800 rounded-none">
-              Buy this now
+          {product.removed ? (
+            <button
+              className="w-full"
+              onClick={() => {
+                const id = product.id;
+                if (intervalId.current[id])
+                  clearTimeout(intervalId.current[id]);
+                setRemovedForSingleProduct(id, false);
+              }}
+            >
+              Undo
             </button>
-          </div>
+          ) : (
+            <>
+              <Product
+                title={product.title}
+                variant={product.variant}
+                quantity={product.quantity}
+                price={product.price}
+                imgsrc={product.imgsrc}
+                setQuantity={(quantity) => updateQuantity(product.id, quantity)}
+              />
+              <div className="m-1 p-1">
+                <button
+                  className="border-zinc-800 rounded-none"
+                  onClick={() => {
+                    intervalId.current[product.id] =
+                      removeProductAndReturnTimeoutId(product.id);
+                  }}
+                >
+                  Remove
+                </button>
+                <button
+                  className="border-zinc-800 rounded-none"
+                  onClick={() => buySingleProduct(product)}
+                >
+                  Buy this now
+                </button>
+              </div>
+            </>
+          )}
         </div>
       ))}
     </div>
