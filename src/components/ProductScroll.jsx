@@ -4,7 +4,7 @@ import Product from "./Product";
 const initialState = [
   {
     id: 1,
-    title: "Product 1",
+    title: "PRODUCT 1",
     variant: "Variant 1",
     quantity: 1,
     price: 1000,
@@ -13,7 +13,7 @@ const initialState = [
   },
   {
     id: 2,
-    title: "Product 2",
+    title: "PRODUCT 2",
     variant: "Variant 2",
     quantity: 1000,
     price: 2000,
@@ -21,7 +21,7 @@ const initialState = [
   },
   {
     id: 3,
-    title: "Product 3",
+    title: "PRODUCT 3",
     variant: "Variant 3",
     quantity: 1,
     price: 3000,
@@ -30,7 +30,7 @@ const initialState = [
   },
   {
     id: 4,
-    title: "Product 4",
+    title: "PRODUCT 4",
     variant: "Variant 4",
     quantity: 1,
     price: 3000,
@@ -38,7 +38,7 @@ const initialState = [
   },
   {
     id: 5,
-    title: "Product 5",
+    title: "PRODUCT 5",
     variant: "Variant 5",
     quantity: 1,
     price: 3000,
@@ -86,7 +86,7 @@ function ProductScroll() {
       {products.map((product) => (
         <div
           key={product.id}
-          className="bg-zinc-800 shadow-md shadow-zinc-900 m-1 p-1 w-full flex flex-col self-center justify-center max-w-screen-lg"
+          className="bg-gray-700 shadow-md shadow-zinc-900 m-1 p-1 w-full flex flex-col self-center justify-center max-w-screen-lg"
         >
           {product.removed ? (
             <button
@@ -112,7 +112,7 @@ function ProductScroll() {
               />
               <div className="m-1 p-1">
                 <button
-                  className="border-zinc-800 rounded-none"
+                  className="border-zinc-800 rounded-s-md"
                   onClick={() => {
                     intervalId.current[product.id] =
                       removeProductAndReturnTimeoutId(product.id);
@@ -121,7 +121,7 @@ function ProductScroll() {
                   Remove
                 </button>
                 <button
-                  className="border-zinc-800 rounded-none"
+                  className="border-zinc-800 rounded-s-md"
                   onClick={() => buySingleProduct(product)}
                 >
                   Buy this now
