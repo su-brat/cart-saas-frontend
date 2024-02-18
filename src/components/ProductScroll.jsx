@@ -48,7 +48,7 @@ const initialState = [
 ];
 
 function ProductScroll() {
-  const intervalId = useRef({});
+  const intervalId = useRef({}); //timeoutID
   const [products, setProducts] = useState(initialState);
   const updateQuantity = (id, quantity) =>
     setProducts((products) =>
@@ -82,11 +82,11 @@ function ProductScroll() {
     // TODO: API call to create a new order with status SUCCESS and current product
   };
   return (
-    <div className="justify-center items-center flex flex-col">
+    <div className="justify-center items-center flex flex-col bg-slate-500 dark:bg-gray-800">
       {products.map((product) => (
         <div
           key={product.id}
-          className="bg-gray-700 shadow-md shadow-zinc-900 m-1 p-1 w-full flex flex-col self-center justify-center max-w-screen-lg"
+          className="bg-slate-300 dark:bg-gray-700 shadow-md shadow-zinc-900 m-1 p-1 w-full flex flex-col self-center justify-center max-w-screen-lg"
         >
           {product.removed ? (
             <button
@@ -112,7 +112,7 @@ function ProductScroll() {
               />
               <div className="m-1 p-1">
                 <button
-                  className="border-zinc-800 rounded-s-md"
+                  className="dark:border-zinc-800 rounded-s-md"
                   onClick={() => {
                     intervalId.current[product.id] =
                       removeProductAndReturnTimeoutId(product.id);
@@ -121,7 +121,7 @@ function ProductScroll() {
                   Remove
                 </button>
                 <button
-                  className="border-zinc-800 rounded-s-md"
+                  className="dark:border-zinc-800 rounded-s-md"
                   onClick={() => buySingleProduct(product)}
                 >
                   Buy this now
