@@ -89,6 +89,9 @@ function ProductScroll() {
   };
   return (
     <div className="justify-center items-center flex flex-col bg-slate-500 dark:bg-gray-800">
+      <div className="object-left">
+        <Price products={products} setPrice={(price) => updatePrice(price)} />
+      </div>
       {products.map((product) => (
         <div
           key={product.id}
@@ -137,9 +140,6 @@ function ProductScroll() {
           )}
         </div>
       ))}
-      <div className="object-left">
-        <Price products={products} setPrice={(price) => updatePrice(price)} />
-      </div>
     </div>
   );
 }
