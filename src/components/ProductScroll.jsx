@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import Product from "./Product";
+import Price from "./Price";
 
 const initialState = [
   {
@@ -50,6 +51,7 @@ const initialState = [
 function ProductScroll() {
   const intervalId = useRef({}); //timeoutID
   const [products, setProducts] = useState(initialState);
+  const [totalPrice, setTotalPrice] = useState(0);
   const updateQuantity = (id, quantity) =>
     setProducts((products) =>
       products.map((product) => {
@@ -61,6 +63,10 @@ function ProductScroll() {
         }
         return product;
       }),
+    );
+  const updatePrice = (price) =>
+    setTotalPrice((products) =>
+      products.reduce((sum, product) => sum + product.price, 0),
     );
   const setRemovedForSingleProduct = (id, removedFlag) => {
     setProducts((products) =>
@@ -131,6 +137,9 @@ function ProductScroll() {
           )}
         </div>
       ))}
+      <div className="object-left">
+        <Price products={products} setPrice={(price) => updatePrice(price)} />
+      </div>
     </div>
   );
 }
