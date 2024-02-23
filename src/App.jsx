@@ -24,7 +24,9 @@ function App() {
   return (
     <ThemeProvider value={{ themeMode, darkTheme, lightTheme }}>
       {/* Address Selection  Component */}
-      <div>
+      <div
+        className={themeMode === "light" ? "light-mode-text" : "dark-mode-text"}
+      >
         <ThemeBtn />
         <ProductScroll />
       </div>

@@ -63,6 +63,15 @@ button:focus-visible {
   }
 }
 
+/* Add utility classes for text colors */
+.light-mode-text {
+  color: #213547; /* Light mode text color */
+}
+
+.dark-mode-text {
+  color: rgba(255, 255, 255, 0.87); /* Dark mode text color */
+}
+
 .errormessage {
   visibility: hidden;
 }
